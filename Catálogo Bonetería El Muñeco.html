@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo Bonetería El Muñeco — Mayoreo y Menudeo CDMX</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tipografías Inter y JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              navy: '#0F1E36',
+              bone: '#F8F7F4',
+              terracotta: '#C83E2B',
+              terracottaHover: '#A93121',
+              slate: '#4A5568',
+            },
+            swiss: {
+              bg: '#090C12',
+              surface: '#0F1522',
+              card: '#131B2B',
+              border: '#1F2A40',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #090C12;
+      color: #F8F7F4;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .swiss-line {
+      border-color: rgba(248, 247, 244, 0.09);
+    }
+
+    /* Micro-trama sutil de fondo tipo tejido técnico */
+    .weave-bg {
+      background-image: radial-gradient(rgba(248, 247, 244, 0.05) 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+
+    /* Scrollbar sobria */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090C12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2A40;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4A5568;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans weave-bg selection:bg-brand-terracotta selection:text-brand-bone">
+
+  <!-- ENCABEZADO SUPERIOR DE MARCA Y ACCIONES -->
+  <header class="sticky top-0 z-30 border-b swiss-line bg-[#090C12]/92 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <!-- Identidad de Marca + Monograma Geométrico -->
+      <div class="flex items-center gap-3 min-w-0">
+        <a href="#top" class="w-10 h-10 rounded-xl bg-brand-navy border border-white/15 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6 text-brand-terracotta" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true">
+            <path d="M8 12L16 4L24 12" />
+            <path d="M4 16L12 8L20 16" />
+            <path d="M12 16L20 8L28 16" />
+            <path d="M8 20L16 28L24 20" />
+            <path d="M12 16L16 20L20 16" />
+          </svg>
+        </a>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-brand-terracotta font-semibold truncate">
+              Mayoreo y Menudeo • CDMX
+            </span>
+          </div>
+          <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-brand-bone truncate">
+            BONETERÍA EL MUÑECO
+          </h1>
+        </div>
+      </div>
+
+      <!-- Acciones principales: Editor JSON/LocalStorage, WhatsApp Directo y Carrito -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <button
+          type="button"
+          id="open-editor-btn"
+          class="px-3 py-2 rounded-xl bg-swiss-card hover:bg-brand-navy border border-white/15 text-xs font-medium text-brand-bone flex items-center gap-1.5 transition-colors cursor-pointer"
+          title="Editar precios y catálogo en JSON / LocalStorage"
+        >
+          <svg class="w-4 h-4 text-brand-terracotta shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          <span class="hidden md:inline">Editor Precios / JSON</span>
+          <span class="md:hidden">JSON</span>
+        </button>
+
+        <a
+          href="https://wa.me/525629070654?text=Hola%20Boneter%C3%ADa%20El%20Mu%C3%B1eco%2C%20solicito%20informaci%C3%B3n%20de%20cat%C3%A1logo%20y%20mayoreo."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-brand-navy hover:bg-[#162a4b] border border-white/15 text-xs font-semibold text-brand-bone transition-colors"
+        >
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>56 2907 0654</span>
+        </a>
+
+        <button
+          type="button"
+          id="open-cart-btn"
+          class="px-3.5 py-2 rounded-xl bg-brand-terracotta hover:bg-brand-terracottaHover text-brand-bone text-xs font-bold flex items-center gap-2 transition-colors shadow-lg shadow-brand-terracotta/20 cursor-pointer"
+        >
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span>Pedido</span>
+          <span id="header-cart-count" class="px-1.5 py-0.5 rounded-md bg-black/30 font-mono text-[11px]">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FRANJA HERO / FICHA OPERATIVA DE SUCURSAL -->
+  <section id="top" class="border-b swiss-line bg-swiss-surface/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-7 lg:py-9">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-7 space-y-2.5">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-brand-navy border border-white/10 text-[11px] font-mono text-brand-bone/90">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-terracotta"></span>
+            <span>MODELO MIXTO • PIEZA, DOCENA (12) Y CIENTO (100)</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-brand-bone leading-[1.12]">
+            Surtido de Bonetería y Temporada
+          </h2>
+          <p class="text-xs sm:text-sm text-white/70 max-w-2xl leading-relaxed">
+            Catálogo operativo con precios por escala actualizables en tiempo real. Arma tu pedido por pieza, docena o ciento y envíalo directo por WhatsApp a mostrador.
+          </p>
+        </div>
+
+        <!-- Datos de ubicación, horario y WhatsApp -->
+        <div class="lg:col-span-5 rounded-2xl bg-swiss-card border swiss-line p-4 sm:p-5 space-y-3 text-xs">
+          <div class="flex items-start gap-2.5">
+            <span class="font-mono text-[11px] uppercase text-brand-terracotta font-semibold shrink-0 w-20">Dirección</span>
+            <span class="text-white/85 leading-snug">
+              Canal del Norte No. 187, Col. Emilio Carranza, Venustiano Carranza, CDMX
+            </span>
+          </div>
+          <div class="flex items-start gap-2.5 pt-2.5 border-t swiss-line">
+            <span class="font-mono text-[11px] uppercase text-brand-terracotta font-semibold shrink-0 w-20">Horario</span>
+            <span class="text-white/85 leading-snug">
+              Lun–Sáb 7:30am - 5:00pm • Dom 8:30am - 4:00pm
+            </span>
+          </div>
+          <div class="flex items-center justify-between pt-2.5 border-t swiss-line">
+            <div class="flex items-center gap-2.5">
+              <span class="font-mono text-[11px] uppercase text-brand-terracotta font-semibold shrink-0 w-20">WhatsApp</span>
+              <span class="font-mono font-semibold text-brand-bone">56 2907 0654</span>
+            </div>
+            <span id="storage-status-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-navy text-white/70 border border-white/10">
+              Base por defecto
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRA DE FILTROS, LÍNEAS ESPECIALES Y BÚSQUEDA -->
+  <section class="sticky top-[61px] z-20 border-b swiss-line bg-[#090C12]/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-3.5 space-y-3">
+      <!-- Fila 1: Búsqueda y Ordenamiento -->
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+        <div class="relative flex-1 max-w-md">
+          <svg class="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z" />
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscar prenda, composición, talla o línea..."
+            class="w-full pl-9 pr-4 py-2 rounded-xl bg-swiss-card border border-white/15 text-xs sm:text-sm text-brand-bone placeholder-white/35 focus:outline-none focus:border-brand-terracotta"
+          />
+        </div>
+
+        <div class="flex items-center justify-between sm:justify-end gap-3">
+          <span id="results-count" class="text-xs font-mono text-white/55">0 artículos</span>
+          <label class="flex items-center gap-2 text-xs text-white/65">
+            <span class="font-mono text-[11px] uppercase text-white/45">Orden:</span>
+            <select
+              id="sort-select"
+              class="px-3 py-2 rounded-xl bg-swiss-card border border-white/15 text-xs text-brand-bone focus:outline-none focus:border-brand-terracotta cursor-pointer"
+            >
+              <option value="default">Catálogo base</option>
+              <option value="price-asc">Precio pieza: menor a mayor</option>
+              <option value="price-desc">Precio pieza: mayor a menor</option>
+              <option value="hundred-asc">Precio ciento: menor a mayor</option>
+              <option value="name-asc">Nombre A — Z</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <!-- Fila 2: Categorías Base + Líneas Especiales / Operativas -->
+      <div id="category-pills" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" role="tablist" aria-label="Categorías y líneas del catálogo">
+        <!-- Se puebla dinámicamente desde JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CUADRÍCULA PRINCIPAL DE PRODUCTOS -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10">
+    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <!-- Tarjetas renderizadas dinámicamente en orden estricto de prioridad 1 -> 4 -->
+    </div>
+
+    <!-- Estado vacío si no hay coincidencias -->
+    <div id="empty-state" class="hidden rounded-2xl bg-swiss-surface border swiss-line p-10 text-center space-y-3 my-6">
+      <p class="text-base font-bold text-brand-bone">Sin artículos con el filtro actual</p>
+      <p class="text-xs sm:text-sm text-white/60 max-w-md mx-auto">
+        Ajusta la búsqueda o regresa a "Todos" para ver tines, calcetines, calcetas, playeras, pijamas, camisones, truzas, bóxers y líneas de temporada.
+      </p>
+      <button
+        type="button"
+        id="clear-filters-btn"
+        class="mt-2 px-4 py-2 rounded-xl bg-brand-terracotta hover:bg-brand-terracottaHover text-xs font-semibold text-brand-bone cursor-pointer"
+      >
+        Restablecer filtros
+      </button>
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA CON RECORDATORIO DISCRETO DE HIDRATACIÓN/PAUSA Y CRONÓMETRO DE SESIÓN -->
+  <footer class="border-t swiss-line bg-swiss-surface/60 mt-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-white/60">
+      <div class="space-y-1">
+        <p class="font-semibold text-brand-bone">Bonetería El Muñeco</p>
+        <p>Canal del Norte No. 187, Col. Emilio Carranza, Venustiano Carranza, CDMX • WhatsApp 56 2907 0654</p>
+        <p class="text-[11px] text-white/45">Lun–Sáb 7:30am - 5:00pm • Dom 8:30am - 4:00pm</p>
+      </div>
+
+      <!-- Recordatorio discreto de hidratación/pausa y temporizador de sesión -->
+      <div class="flex flex-wrap items-center gap-3 text-[11px] font-mono">
+        <span id="hydration-reminder" class="px-2.5 py-1 rounded-lg bg-swiss-card border border-white/10 text-white/65">
+          Pausa / agua: cada 45 min
+        </span>
+        <span class="px-2.5 py-1 rounded-lg bg-swiss-card border border-white/10 text-brand-bone/85">
+          Sesión: <strong id="session-timer" class="font-semibold text-brand-terracotta">00:00:00</strong>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BARRA FLOTANTE COMPACTA DE PEDIDO EN MÓVIL -->
+  <div id="mobile-cart-bar" class="fixed bottom-4 inset-x-4 z-30 md:hidden hidden">
+    <button
+      type="button"
+      id="mobile-open-cart-btn"
+      class="w-full py-3.5 px-5 rounded-2xl bg-brand-terracotta hover:bg-brand-terracottaHover text-brand-bone shadow-2xl border border-white/15 flex items-center justify-between text-xs font-bold cursor-pointer"
+    >
+      <span class="flex items-center gap-2">
+        <span id="mobile-cart-badge" class="px-2 py-0.5 rounded-md bg-black/30 font-mono">0</span>
+        <span>Ver pedido para WhatsApp</span>
+      </span>
+      <span id="mobile-cart-total" class="font-mono text-sm">$0.00</span>
+    </button>
+  </div>
+
+  <!-- CAJÓN DESLIZABLE: CARRITO DE PEDIDO (PIEZA / DOCENA / CIENTO -> WHATSAPP) -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+    <div id="cart-backdrop" class="fixed inset-0 bg-black/75 backdrop-blur-xs transition-opacity"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-8">
+      <aside class="w-screen max-w-md bg-swiss-surface border-l swiss-line flex flex-col h-full shadow-2xl">
+        <!-- Cabecera del carrito -->
+        <div class="px-5 py-4 border-b swiss-line flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-brand-terracotta font-semibold">Orden Directa</span>
+            <h3 class="text-base font-bold text-brand-bone">Carrito de Pedido</h3>
+          </div>
+          <button
+            type="button"
+            id="close-cart-btn"
+            aria-label="Cerrar carrito"
+            class="p-2 rounded-xl bg-swiss-card hover:bg-white/10 text-white/70 hover:text-brand-bone cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Lista de partidas -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto px-5 py-4 space-y-3">
+          <!-- Partidas renderizadas por JS -->
+        </div>
+
+        <!-- Pie del carrito con totales de volumen y envío a WhatsApp -->
+        <div class="p-5 border-t swiss-line bg-[#090C12] space-y-4">
+          <div class="space-y-1.5 text-xs">
+            <div class="flex items-center justify-between text-white/65">
+              <span>Unidades textiles acumuladas</span>
+              <span id="cart-total-units" class="font-mono font-semibold text-brand-bone">0 pzas</span>
+            </div>
+            <div class="flex items-center justify-between text-white/65">
+              <span>Equivalencia docenas / cientos</span>
+              <span id="cart-pack-equiv" class="font-mono text-white/80">0 doc • 0.00 cien</span>
+            </div>
+            <div class="flex items-center justify-between text-sm font-bold text-brand-bone pt-2 border-t swiss-line">
+              <span>Subtotal estimado</span>
+              <span id="cart-subtotal" class="font-mono text-base text-brand-terracotta">$0.00</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label for="buyer-note-input" class="block text-[11px] font-mono uppercase text-white/50">
+              Nota opcional para mostrador / envío
+            </label>
+            <input
+              type="text"
+              id="buyer-note-input"
+              placeholder="Ej. Pasan a recoger 8:00 am o cotizar envío..."
+              class="w-full px-3 py-2 rounded-xl bg-swiss-card border border-white/15 text-xs text-brand-bone placeholder-white/35 focus:outline-none focus:border-brand-terracotta"
+            />
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <button
+              type="button"
+              id="clear-cart-btn"
+              class="px-3.5 py-3 rounded-xl bg-swiss-card hover:bg-white/10 border border-white/15 text-xs font-semibold text-white/75 hover:text-brand-bone transition-colors cursor-pointer"
+            >
+              Vaciar
+            </button>
+            <a
+              id="send-whatsapp-order-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-lg"
+            >
+              <span>Enviar Pedido por WhatsApp</span>
+              <span class="font-mono text-[11px] opacity-90">(56 2907 0654)</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- MODAL / DRAWER: EDITOR DE PRECIOS Y CATÁLOGO (JSON / LOCALSTORAGE) -->
+  <div id="editor-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-hidden="true">
+    <div id="editor-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-xs"></div>
+    <div class="relative min-h-screen flex items-center justify-center p-4 sm:p-6">
+      <div class="relative w-full max-w-4xl rounded-2xl bg-swiss-surface border swiss-line shadow-2xl overflow-hidden">
+        <!-- Cabecera del Editor -->
+        <div class="px-6 py-4 border-b swiss-line flex items-center justify-between gap-4 bg-[#090C12]">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-brand-terracotta font-semibold">
+              Persistencia LocalStorage • boneteria_el_muneco_catalog_v1
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-brand-bone">
+              Editor de Precios y Catálogo (JSON / LocalStorage)
+            </h3>
+          </div>
+          <button
+            type="button"
+            id="close-editor-btn"
+            aria-label="Cerrar editor"
+            class="p-2 rounded-xl bg-swiss-card hover:bg-white/10 text-white/70 hover:text-brand-bone cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Pestañas internas del editor -->
+        <div class="px-6 pt-4 border-b swiss-line flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              id="tab-visual-editor"
+              class="px-4 py-2 rounded-t-xl text-xs font-bold bg-swiss-card text-brand-bone border-t border-x border-white/15 cursor-pointer"
+            >
+              Precios y Alta Rápida
+            </button>
+            <button
+              type="button"
+              id="tab-raw-json"
+              class="px-4 py-2 rounded-t-xl text-xs font-semibold text-white/60 hover:text-brand-bone cursor-pointer"
+            >
+              JSON Directo
+            </button>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 pb-2">
+            <button
+              type="button"
+              id="export-json-btn"
+              class="px-3 py-1.5 rounded-lg bg-swiss-card hover:bg-white/10 border border-white/15 text-[11px] font-mono text-brand-bone cursor-pointer"
+            >
+              Exportar .JSON
+            </button>
+            <label class="px-3 py-1.5 rounded-lg bg-swiss-card hover:bg-white/10 border border-white/15 text-[11px] font-mono text-brand-bone cursor-pointer">
+              <span>Importar .JSON</span>
+              <input type="file" id="import-json-file" accept=".json,application/json" class="hidden" />
+            </label>
+            <button
+              type="button"
+              id="reset-default-catalog-btn"
+              class="px-3 py-1.5 rounded-lg bg-swiss-card hover:bg-red-950/60 border border-white/15 text-[11px] font-mono text-red-300 cursor-pointer"
+            >
+              Restaurar Base
+            </button>
+          </div>
+        </div>
+
+        <!-- Cuerpo del Editor -->
+        <div class="p-6 space-y-6 max-h-[72vh] overflow-y-auto">
+          <!-- Mensaje de estado dentro del modal -->
+          <div id="editor-status-banner" class="hidden px-4 py-2.5 rounded-xl text-xs font-medium border"></div>
+
+          <!-- VISTA 1: Tabla rápida de precios + Formulario de nuevo artículo -->
+          <div id="panel-visual-editor" class="space-y-6">
+            <!-- Formulario para agregar nuevo artículo -->
+            <form id="add-product-form" class="rounded-xl bg-swiss-card border swiss-line p-4 sm:p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-brand-terracotta font-semibold">
+                  Agregar Nuevo Artículo al Catálogo
+                </h4>
+                <span class="text-[11px] font-mono text-white/45">Se guarda en LocalStorage</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Nombre del artículo *</label>
+                  <input type="text" id="new-prod-name" required placeholder="Ej. Calcetín Deportivo Algodón" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs text-brand-bone" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Categoría base *</label>
+                  <select id="new-prod-category" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs text-brand-bone">
+                    <option value="Tines">Tines</option>
+                    <option value="Calcetines">Calcetines</option>
+                    <option value="Calcetas">Calcetas</option>
+                    <option value="Playeras">Playeras</option>
+                    <option value="Pijamas">Pijamas</option>
+                    <option value="Camisones">Camisones</option>
+                    <option value="Truzas">Truzas</option>
+                    <option value="Bóxers y más">Bóxers y más</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Línea / Temporada</label>
+                  <select id="new-prod-line" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs text-brand-bone">
+                    <option value="Línea General">Línea General</option>
+                    <option value="Línea Escolar">Línea Escolar</option>
+                    <option value="Temporada Decembrina / Especiales">Temporada Decembrina / Especiales</option>
+                    <option value="Personajes con Licencia">Personajes con Licencia</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Composición textil *</label>
+                  <input type="text" id="new-prod-comp" required placeholder="Ej. 80% Algodón / 20% Poliéster" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs text-brand-bone" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Tallas *</label>
+                  <input type="text" id="new-prod-sizes" required placeholder="Ej. CH, M, G o 15-24" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs text-brand-bone" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Precio Pieza ($ MXN) *</label>
+                  <input type="number" step="0.01" min="0.1" id="new-prod-pieza" required placeholder="18.00" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs font-mono text-brand-bone" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Precio Docena x12 ($ MXN) *</label>
+                  <input type="number" step="0.01" min="0.1" id="new-prod-docena" required placeholder="168.00" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs font-mono text-brand-bone" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-white/65 mb-1">Precio Ciento x100 ($ MXN) *</label>
+                  <input type="number" step="0.01" min="0.1" id="new-prod-ciento" required placeholder="1150.00" class="w-full px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs font-mono text-brand-bone" />
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <input type="text" id="new-prod-colors" placeholder="Colores (separados por coma, ej. Blanco, Marino, Negro)" class="flex-1 min-w-[220px] px-3 py-2 rounded-lg bg-[#090C12] border border-white/15 text-xs text-brand-bone" />
+                <button type="submit" class="px-4 py-2 rounded-xl bg-brand-navy hover:bg-[#172c4e] border border-white/15 text-xs font-bold text-brand-bone cursor-pointer">
+                  + Añadir Artículo
+                </button>
+              </div>
+            </form>
+
+            <!-- Tabla editable de precios por artículo -->
+            <div class="overflow-x-auto rounded-xl border swiss-line">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead class="bg-[#090C12] text-[10px] font-mono uppercase text-white/55 border-b swiss-line">
+                  <tr>
+                    <th class="py-3 px-3.5">Artículo</th>
+                    <th class="py-3 px-3">Línea</th>
+                    <th class="py-3 px-3">Pieza ($)</th>
+                    <th class="py-3 px-3">Docena x12 ($)</th>
+                    <th class="py-3 px-3">Ciento x100 ($)</th>
+                    <th class="py-3 px-3.5 text-right">Activo</th>
+                  </tr>
+                </thead>
+                <tbody id="price-table-body" class="divide-y divide-white/10 bg-swiss-card">
+                  <!-- Filas generadas dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- VISTA 2: Edición directa de JSON -->
+          <div id="panel-raw-json" class="hidden space-y-3">
+            <p class="text-xs text-white/65">
+              Edita directamente el arreglo JSON de artículos. Al guardar se valida la estructura y se persiste en <code class="font-mono text-brand-terracotta">localStorage</code>.
+            </p>
+            <textarea
+              id="raw-json-textarea"
+              rows="16"
+              spellcheck="false"
+              class="w-full p-4 rounded-xl bg-[#090C12] border border-white/15 font-mono text-xs text-emerald-300 leading-relaxed focus:outline-none focus:border-brand-terracotta"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Pie del Editor -->
+        <div class="px-6 py-4 border-t swiss-line bg-[#090C12] flex flex-wrap items-center justify-between gap-3">
+          <span class="text-[11px] font-mono text-white/50">
+            Clave: <strong class="text-brand-bone">boneteria_el_muneco_catalog_v1</strong>
+          </span>
+          <div class="flex items-center gap-2.5">
+            <button
+              type="button"
+              id="cancel-editor-btn"
+              class="px-4 py-2 rounded-xl bg-swiss-card hover:bg-white/10 border border-white/15 text-xs font-semibold text-white/75 cursor-pointer"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              id="save-catalog-btn"
+              class="px-5 py-2 rounded-xl bg-brand-terracotta hover:bg-brand-terracottaHover text-xs font-bold text-brand-bone shadow-lg cursor-pointer"
+            >
+              Guardar en LocalStorage
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // =========================================================================
+      // 1. CONSTANTES DE MARCA Y PERSISTENCIA
+      // =========================================================================
+      const STORAGE_KEY = 'boneteria_el_muneco_catalog_v1';
+      const CART_STORAGE_KEY = 'boneteria_el_muneco_cart_v1';
+      const WHATSAPP_NUMBER = '525629070654';
+      const WHATSAPP_DISPLAY = '56 2907 0654';
+
+      const BASE_CATEGORIES = [
+        'Tines',
+        'Calcetines',
+        'Calcetas',
+        'Playeras',
+        'Pijamas',
+        'Camisones',
+        'Truzas',
+        'Bóxers y más'
+      ];
+
+      const SPECIAL_LINES = [
+        'Línea Escolar',
+        'Temporada Decembrina / Especiales',
+        'Personajes con Licencia'
+      ];
+
+      // Catálogo inicial realista para Bonetería El Muñeco
+      const DEFAULT_CATALOG = [
+        {
+          id: 'tin-alg-01',
+          name: 'Tin Tobillero Clásico Algodón',
+          category: 'Tines',
+          line: 'Línea General',
+          weaveType: 'ribbed',
+          textureLabel: 'Tejido acanalado de rizo',
+          sizes: 'UNITALLA (18-26)',
+          composition: '78% Algodón / 18% Poliéster / 4% Elastano',
+          colors: ['Blanco', 'Negro', 'Marino', 'Gris Jaspe'],
+          prices: { pieza: 12.00, docena: 114.00, ciento: 780.00 },
+          active: true
+        },
+        {
+          id: 'cal-dep-02',
+          name: 'Calcetín Deportivo Alto Reforzado',
+          category: 'Calcetines',
+          line: 'Línea General',
+          weaveType: 'mesh',
+          textureLabel: 'Rizo plantar + malla transpirable',
+          sizes: 'CH, M, G',
+          composition: '82% Algodón / 15% Poliéster / 3% Elastano',
+          colors: ['Blanco', 'Negro', 'Carbón'],
+          prices: { pieza: 19.00, docena: 180.00, ciento: 1250.00 },
+          active: true
+        },
+        {
+          id: 'clc-esc-03',
+          name: 'Calceta Escolar Larga Canalé',
+          category: 'Calcetas',
+          line: 'Línea Escolar',
+          weaveType: 'ribbed',
+          textureLabel: 'Canalé fino con puño firme',
+          sizes: '12-15, 16-19, 20-24',
+          composition: '80% Algodón / 17% Poliéster / 3% Elastano',
+          colors: ['Marino', 'Blanco', 'Guinda'],
+          prices: { pieza: 22.00, docena: 204.00, ciento: 1420.00 },
+          active: true
+        },
+        {
+          id: 'ply-esc-04',
+          name: 'Playera Cuello Redondo Escolar',
+          category: 'Playeras',
+          line: 'Línea Escolar',
+          weaveType: 'jersey',
+          textureLabel: 'Jersey peinado de punto cerrado',
+          sizes: '6, 8, 10, 12, 14, CH, M, G',
+          composition: '65% Algodón / 35% Poliéster',
+          colors: ['Blanco', 'Gris Jaspe', 'Azul Cielo'],
+          prices: { pieza: 48.00, docena: 468.00, ciento: 3450.00 },
+          active: true
+        },
+        {
+          id: 'pij-dec-05',
+          name: 'Pijama Térmica Invierno / Decembrina',
+          category: 'Pijamas',
+          line: 'Temporada Decembrina / Especiales',
+          weaveType: 'fleece',
+          textureLabel: 'Felpa cepillada de tacto suave',
+          sizes: 'CH, M, G, EG',
+          composition: '55% Algodón / 45% Poliéster',
+          colors: ['Rojo Vino', 'Marino', 'Hueso'],
+          prices: { pieza: 135.00, docena: 1380.00, ciento: 10500.00 },
+          active: true
+        },
+        {
+          id: 'cam-clas-06',
+          name: 'Camisón Manga Corta de Algodón',
+          category: 'Camisones',
+          line: 'Línea General',
+          weaveType: 'jersey',
+          textureLabel: 'Jersey ligero transpirable',
+          sizes: 'CH, M, G, EG',
+          composition: '90% Algodón / 10% Poliéster',
+          colors: ['Rosa Palo', 'Lila', 'Azul Claro', 'Hueso'],
+          prices: { pieza: 85.00, docena: 840.00, ciento: 6200.00 },
+          active: true
+        },
+        {
+          id: 'trz-lic-07',
+          name: 'Truza Estampada Personajes',
+          category: 'Truzas',
+          line: 'Personajes con Licencia',
+          weaveType: 'ribbed',
+          textureLabel: 'Algodón elástico con elástico suave',
+          sizes: '4, 6, 8, 10, 12',
+          composition: '85% Algodón / 10% Poliéster / 5% Elastano',
+          colors: ['Azul Rey', 'Rojo', 'Coral'],
+          prices: { pieza: 24.00, docena: 228.00, ciento: 1650.00 },
+          active: true
+        },
+        {
+          id: 'box-may-08',
+          name: 'Bóxer Corte Clásico Caballeros',
+          category: 'Bóxers y más',
+          line: 'Línea General',
+          weaveType: 'jersey',
+          textureLabel: 'Punto compacto con pretina ancha',
+          sizes: 'CH, M, G, EG',
+          composition: '70% Algodón / 30% Poliéster',
+          colors: ['Negro', 'Marino', 'Gris Oxford'],
+          prices: { pieza: 36.00, docena: 348.00, ciento: 2580.00 },
+          active: true
+        },
+        {
+          id: 'cal-lic-09',
+          name: 'Calcetín Infantil con Licencia',
+          category: 'Calcetines',
+          line: 'Personajes con Licencia',
+          weaveType: 'mesh',
+          textureLabel: 'Tejido circular de alta definición',
+          sizes: '12-14, 15-17, 18-21',
+          composition: '75% Algodón / 22% Poliéster / 3% Elastano',
+          colors: ['Rojo', 'Azul Marino', 'Amarillo'],
+          prices: { pieza: 17.50, docena: 168.00, ciento: 1180.00 },
+          active: true
+        },
+        {
+          id: 'mas-dec-10',
+          name: 'Paquete Especial Guantes y Gorro Térmico',
+          category: 'Bóxers y más',
+          line: 'Temporada Decembrina / Especiales',
+          weaveType: 'fleece',
+          textureLabel: 'Punto acanalado térmico invernal',
+          sizes: 'UNITALLA',
+          composition: '60% Poliéster / 40% Acrílico',
+          colors: ['Negro', 'Terracota', 'Marino'],
+          prices: { pieza: 54.00, docena: 528.00, ciento: 3900.00 },
+          active: true
+        }
+      ];
+
+      // =========================================================================
+      // 2. ESTADO DE LA APLICACIÓN
+      // =========================================================================
+      let catalog = [];
+      let cart = [];
+      let activeFilter = 'Todos';
+      let searchQuery = '';
+      let sortBy = 'default';
+
+      // =========================================================================
+      // 3. CARGA Y GUARDADO EN LOCALSTORAGE
+      // =========================================================================
+      function loadCatalogFromStorage() {
+        const badge = document.getElementById('storage-status-badge');
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              catalog = parsed;
+              if (badge) {
+                badge.textContent = 'LocalStorage activo';
+                badge.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500/30';
+              }
+              return;
+            }
+          }
+        } catch (err) {
+          console.error('Error leyendo catálogo de LocalStorage:', err);
+        }
+        catalog = JSON.parse(JSON.stringify(DEFAULT_CATALOG));
+        if (badge) {
+          badge.textContent = 'Base por defecto';
+          badge.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-brand-navy text-white/70 border border-white/10';
+        }
+      }
+
+      function saveCatalogToStorage(nextCatalog) {
+        catalog = nextCatalog;
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(catalog));
+        } catch (err) {
+          console.error('Error guardando catálogo en LocalStorage:', err);
+        }
+        const badge = document.getElementById('storage-status-badge');
+        if (badge) {
+          badge.textContent = 'LocalStorage activo';
+          badge.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500/30';
+        }
+      }
+
+      function loadCartFromStorage() {
+        try {
+          const raw = localStorage.getItem(CART_STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+              cart = parsed;
+            }
+          }
+        } catch (err) {
+          cart = [];
+        }
+      }
+
+      function saveCartToStorage() {
+        try {
+          localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+        } catch (err) {
+          // Ignorar errores de cuota si ocurre
+        }
+      }
+
+      function formatCurrency(amount) {
+        const num = Number(amount) || 0;
+        return '$' + num.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      // =========================================================================
+      // 4. ILUSTRACIONES SVG INLINE DE PRENDA Y TEXTURA TEXTIL (PRIORIDAD #1)
+      // =========================================================================
+      function renderTextileArtwork(product) {
+        const weave = product.weaveType || 'ribbed';
+        let patternSvg = '';
+
+        if (weave === 'ribbed') {
+          patternSvg = `
+            <pattern id="pat-${product.id}" width="8" height="8" patternUnits="userSpaceOnUse">
+              <rect width="8" height="8" fill="#0F1E36" />
+              <line x1="2" y1="0" x2="2" y2="8" stroke="#F8F7F4" stroke-opacity="0.16" stroke-width="1.5" />
+              <line x1="6" y1="0" x2="6" y2="8" stroke="#C83E2B" stroke-opacity="0.28" stroke-width="1" />
+            </pattern>`;
+        } else if (weave === 'mesh') {
+          patternSvg = `
+            <pattern id="pat-${product.id}" width="10" height="10" patternUnits="userSpaceOnUse">
+              <rect width="10" height="10" fill="#0F1E36" />
+              <circle cx="5" cy="5" r="1.5" fill="#F8F7F4" fill-opacity="0.22" />
+              <path d="M0 5H10M5 0V10" stroke="#F8F7F4" stroke-opacity="0.06" stroke-width="0.8" />
+            </pattern>`;
+        } else if (weave === 'fleece') {
+          patternSvg = `
+            <pattern id="pat-${product.id}" width="12" height="12" patternUnits="userSpaceOnUse">
+              <rect width="12" height="12" fill="#0F1E36" />
+              <path d="M2 6C4 2 8 10 10 6" stroke="#F8F7F4" stroke-opacity="0.18" stroke-width="1.2" fill="none" />
+              <circle cx="3" cy="3" r="0.9" fill="#C83E2B" fill-opacity="0.35" />
+            </pattern>`;
+        } else {
+          // jersey
+          patternSvg = `
+            <pattern id="pat-${product.id}" width="8" height="8" patternUnits="userSpaceOnUse">
+              <rect width="8" height="8" fill="#0F1E36" />
+              <path d="M1 2L4 5L7 2" stroke="#F8F7F4" stroke-opacity="0.16" stroke-width="1.2" fill="none" />
+            </pattern>`;
+        }
+
+        return `
+          <div class="relative h-36 rounded-xl overflow-hidden bg-brand-navy border border-white/10 flex items-center justify-between px-4">
+            <svg class="w-full h-full absolute inset-0" viewBox="0 0 360 144" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>${patternSvg}</defs>
+              <rect width="360" height="144" fill="url(#pat-${product.id})" />
+              <!-- Silueta geométrica limpia de prenda / módulo textil -->
+              <g transform="translate(238, 16)" stroke="#F8F7F4" stroke-opacity="0.35" stroke-width="2" fill="#C83E2B" fill-opacity="0.18">
+                <path d="M28 8L52 8L66 24L54 34L48 26L48 98L12 98L12 26L6 34L-8 24L6 8L28 8Z" />
+                <line x1="18" y1="42" x2="42" y2="42" stroke="#F8F7F4" stroke-opacity="0.45" stroke-dasharray="4 3" />
+                <line x1="18" y1="62" x2="42" y2="62" stroke="#F8F7F4" stroke-opacity="0.45" stroke-dasharray="4 3" />
+              </g>
+            </svg>
+
+            <div class="relative z-10 max-w-[65%] space-y-1.5">
+              <span class="inline-block text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-brand-terracotta text-brand-bone font-semibold">
+                ${escapeHtml(product.line)}
+              </span>
+              <p class="text-[11px] font-mono text-brand-bone/90 leading-tight">
+                ${escapeHtml(product.textureLabel || 'Punto textil de mayoreo')}
+              </p>
+            </div>
+          </div>
+        `;
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      // =========================================================================
+      // 5. FILTROS, ORDENAMIENTO Y RENDERIZADO DE CATÁLOGO (ORDEN ESTRICTO 1 -> 4)
+      // =========================================================================
+      function renderCategoryPills() {
+        const container = document.getElementById('category-pills');
+        const allTabs = ['Todos', ...BASE_CATEGORIES, ...SPECIAL_LINES];
+
+        container.innerHTML = allTabs
+          .map((tab) => {
+            const isActive = activeFilter === tab;
+            const isSpecial = SPECIAL_LINES.includes(tab);
+            const activeClasses = isActive
+              ? 'bg-brand-terracotta text-brand-bone border-brand-terracotta font-bold'
+              : isSpecial
+                ? 'bg-brand-navy/90 text-brand-bone/90 border-brand-terracotta/40 hover:border-brand-terracotta'
+                : 'bg-swiss-card text-white/75 border-white/10 hover:border-white/25 hover:text-brand-bone';
+
+            return `
+              <button
+                type="button"
+                role="tab"
+                aria-selected="${isActive}"
+                data-filter="${escapeHtml(tab)}"
+                class="filter-pill px-3.5 py-1.5 rounded-xl border text-xs whitespace-nowrap transition-all shrink-0 cursor-pointer ${activeClasses}"
+              >
+                ${escapeHtml(tab)}
+              </button>
+            `;
+          })
+          .join('');
+      }
+
+      function getFilteredProducts() {
+        const q = searchQuery.trim().toLowerCase();
+        let list = catalog.filter((item) => item.active !== false);
+
+        if (activeFilter !== 'Todos') {
+          list = list.filter(
+            (item) => item.category === activeFilter || item.line === activeFilter
+          );
+        }
+
+        if (q) {
+          list = list.filter((item) => {
+            const haystack = [
+              item.name,
+              item.category,
+              item.line,
+              item.composition,
+              item.sizes,
+              ...(item.colors || [])
+            ]
+              .join(' ')
+              .toLowerCase();
+            return haystack.includes(q);
+          });
+        }
+
+        if (sortBy === 'price-asc') {
+          list.sort((a, b) => (a.prices?.pieza || 0) - (b.prices?.pieza || 0));
+        } else if (sortBy === 'price-desc') {
+          list.sort((a, b) => (b.prices?.pieza || 0) - (a.prices?.pieza || 0));
+        } else if (sortBy === 'hundred-asc') {
+          list.sort((a, b) => (a.prices?.ciento || 0) - (b.prices?.ciento || 0));
+        } else if (sortBy === 'name-asc') {
+          list.sort((a, b) => a.name.localeCompare(b.name, 'es'));
+        }
+
+        return list;
+      }
+
+      function buildSingleItemWhatsAppUrl(product, tier = 'docena') {
+        const p = product.prices || {};
+        const msg = [
+          'Hola Bonetería El Muñeco, me interesa cotizar/pedir:',
+          `• Artículo: ${product.name}`,
+          `• Línea/Catálogo: ${product.category} (${product.line})`,
+          `• Escala consultada: ${tier.toUpperCase()}`,
+          `• Referencia precios: Pieza ${formatCurrency(p.pieza)} | Docena (12) ${formatCurrency(p.docena)} | Ciento (100) ${formatCurrency(p.ciento)}`
+        ].join('\n');
+        return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      }
+
+      function renderCatalogGrid() {
+        const grid = document.getElementById('product-grid');
+        const emptyState = document.getElementById('empty-state');
+        const countLabel = document.getElementById('results-count');
+
+        const items = getFilteredProducts();
+        countLabel.textContent = `${items.length} ${items.length === 1 ? 'artículo' : 'artículos'}`;
+
+        if (items.length === 0) {
+          grid.innerHTML = '';
+          emptyState.classList.remove('hidden');
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+
+        // Cada tarjeta sigue ESTRICTAMENTE el orden de prioridad 1 -> 4:
+        // 1. Fotografía / Visualización de prenda y textura
+        // 2. Especificaciones técnicas (Tallas, composición algodón/poliéster, colores)
+        // 3. Acción directa de pedido por WhatsApp (+ agregar al carrito)
+        // 4. Escala de volumen (Pieza, Docena [12], Ciento [100])
+        grid.innerHTML = items
+          .map((product) => {
+            const p = product.prices || { pieza: 0, docena: 0, ciento: 0 };
+            const colorsList = Array.isArray(product.colors) && product.colors.length
+              ? product.colors.join(', ')
+              : 'Surtido de tienda';
+            const quickWaUrl = buildSingleItemWhatsAppUrl(product, 'docena');
+
+            return `
+              <article class="rounded-2xl bg-swiss-surface border swiss-line p-5 flex flex-col justify-between gap-5 hover:border-white/25 transition-colors">
+                <div class="space-y-4">
+                  <!-- Encabezado de categoría y título -->
+                  <div class="flex items-start justify-between gap-2">
+                    <div>
+                      <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">
+                        ${escapeHtml(product.category)}
+                      </span>
+                      <h3 class="text-base sm:text-lg font-bold text-brand-bone leading-snug mt-0.5">
+                        ${escapeHtml(product.name)}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <!-- [PRIORIDAD 1] Fotografía / Visualización de prenda y textura -->
+                  <div aria-label="Prioridad 1: Visualización de prenda y textura">
+                    ${renderTextileArtwork(product)}
+                  </div>
+
+                  <!-- [PRIORIDAD 2] Especificaciones técnicas (Tallas, composición algodón/poliéster, colores) -->
+                  <div class="rounded-xl bg-swiss-card border border-white/10 p-3.5 space-y-2 text-xs" aria-label="Prioridad 2: Especificaciones técnicas">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[10px] font-mono uppercase tracking-wider text-white/45">02 • Ficha Técnica</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-1.5">
+                      <p class="text-white/80">
+                        <span class="font-mono text-[11px] text-white/50">Tallas:</span>
+                        <strong class="font-semibold text-brand-bone">${escapeHtml(product.sizes)}</strong>
+                      </p>
+                      <p class="text-white/80">
+                        <span class="font-mono text-[11px] text-white/50">Composición:</span>
+                        <span>${escapeHtml(product.composition)}</span>
+                      </p>
+                      <p class="text-white/80">
+                        <span class="font-mono text-[11px] text-white/50">Colores:</span>
+                        <span>${escapeHtml(colorsList)}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- [PRIORIDAD 3] Acción directa de pedido por WhatsApp + selector de escala al carrito -->
+                  <div class="space-y-2.5 pt-0.5" aria-label="Prioridad 3: Acción directa de pedido por WhatsApp">
+                    <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-white/45">
+                      <span>03 • Pedido Directo</span>
+                      <span>WhatsApp ${WHATSAPP_DISPLAY}</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-2">
+                      <a
+                        href="${quickWaUrl}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex-1 py-2.5 px-3 rounded-xl bg-brand-terracotta hover:bg-brand-terracottaHover text-brand-bone text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                      >
+                        <span>Pedir por WhatsApp</span>
+                      </a>
+
+                      <div class="flex items-center gap-1.5">
+                        <select
+                          id="tier-${escapeHtml(product.id)}"
+                          aria-label="Seleccionar escala para ${escapeHtml(product.name)}"
+                          class="px-2.5 py-2.5 rounded-xl bg-swiss-card border border-white/15 text-xs font-mono text-brand-bone focus:outline-none focus:border-brand-terracotta cursor-pointer"
+                        >
+                          <option value="pieza">Pieza (1)</option>
+                          <option value="docena" selected>Docena (12)</option>
+                          <option value="ciento">Ciento (100)</option>
+                        </select>
+                        <button
+                          type="button"
+                          data-add-id="${escapeHtml(product.id)}"
+                          class="add-to-cart-btn px-3 py-2.5 rounded-xl bg-brand-navy hover:bg-[#172d52] border border-white/15 text-xs font-bold text-brand-bone transition-colors cursor-pointer"
+                          title="Agregar al carrito de pedido"
+                        >
+                          + Sumar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- [PRIORIDAD 4] Escala de volumen (Pieza, Docena [12], Ciento [100]) -->
+                <div class="pt-3 border-t swiss-line" aria-label="Prioridad 4: Escala de volumen">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-white/45">04 • Escala de Volumen</span>
+                    <span class="text-[10px] font-mono text-brand-terracotta">Mayoreo / Menudeo</span>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="p-2 rounded-xl bg-swiss-card border border-white/10">
+                      <span class="block text-[10px] font-mono text-white/50">PIEZA (1)</span>
+                      <span class="block text-xs sm:text-sm font-mono font-bold text-brand-bone mt-0.5">${formatCurrency(p.pieza)}</span>
+                    </div>
+                    <div class="p-2 rounded-xl bg-swiss-card border border-white/15">
+                      <span class="block text-[10px] font-mono text-white/55">DOCENA (12)</span>
+                      <span class="block text-xs sm:text-sm font-mono font-bold text-brand-bone mt-0.5">${formatCurrency(p.docena)}</span>
+                    </div>
+                    <div class="p-2 rounded-xl bg-brand-navy/90 border border-brand-terracotta/40">
+                      <span class="block text-[10px] font-mono text-brand-bone/80">CIENTO (100)</span>
+                      <span class="block text-xs sm:text-sm font-mono font-bold text-brand-bone mt-0.5">${formatCurrency(p.ciento)}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+      }
+
+      // =========================================================================
+      // 6. CARRITO DE PEDIDO Y ENVÍO FORMATEADO A WHATSAPP
+      // =========================================================================
+      const TIER_UNITS = { pieza: 1, docena: 12, ciento: 100 };
+      const TIER_LABELS = { pieza: 'Pieza', docena: 'Docena (12)', ciento: 'Ciento (100)' };
+
+      function addToCart(productId, tier) {
+        const product = catalog.find((p) => p.id === productId);
+        if (!product) return;
+        const selectedTier = TIER_UNITS[tier] ? tier : 'docena';
+        const existing = cart.find((item) => item.productId === productId && item.tier === selectedTier);
+
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({
+            productId: product.id,
+            tier: selectedTier,
+            qty: 1
+          });
+        }
+        saveCartToStorage();
+        renderCart();
+        openCartDrawer();
+      }
+
+      function updateCartQty(index, delta) {
+        if (!cart[index]) return;
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1);
+        }
+        saveCartToStorage();
+        renderCart();
+      }
+
+      function removeCartItem(index) {
+        cart.splice(index, 1);
+        saveCartToStorage();
+        renderCart();
+      }
+
+      function renderCart() {
+        const container = document.getElementById('cart-items-container');
+        const headerCount = document.getElementById('header-cart-count');
+        const mobileBar = document.getElementById('mobile-cart-bar');
+        const mobileBadge = document.getElementById('mobile-cart-badge');
+        const mobileTotal = document.getElementById('mobile-cart-total');
+
+        const totalPackCount = cart.reduce((acc, row) => acc + row.qty, 0);
+        headerCount.textContent = String(totalPackCount);
+
+        let totalUnits = 0;
+        let subtotal = 0;
+
+        if (cart.length === 0) {
+          container.innerHTML = `
+            <div class="rounded-xl bg-swiss-card border border-white/10 p-6 text-center space-y-2">
+              <p class="text-sm font-semibold text-brand-bone">Tu pedido está vacío</p>
+              <p class="text-xs text-white/55">Elige una escala (Pieza, Docena o Ciento) en cualquier prenda y presiona "+ Sumar".</p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = cart
+            .map((row, idx) => {
+              const prod = catalog.find((p) => p.id === row.productId);
+              if (!prod) return '';
+              const unitPrice = Number(prod.prices?.[row.tier] || 0);
+              const lineTotal = unitPrice * row.qty;
+              const lineUnits = (TIER_UNITS[row.tier] || 1) * row.qty;
+              totalUnits += lineUnits;
+              subtotal += lineTotal;
+
+              return `
+                <div class="rounded-xl bg-swiss-card border border-white/10 p-3.5 space-y-2.5">
+                  <div class="flex items-start justify-between gap-2">
+                    <div>
+                      <p class="text-xs sm:text-sm font-bold text-brand-bone leading-snug">${escapeHtml(prod.name)}</p>
+                      <p class="text-[11px] font-mono text-brand-terracotta mt-0.5">
+                        Escala: ${TIER_LABELS[row.tier]} • ${formatCurrency(unitPrice)} c/u
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      data-remove-idx="${idx}"
+                      aria-label="Eliminar partida"
+                      class="text-xs text-white/40 hover:text-red-400 px-1.5 py-0.5 cursor-pointer"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-2 border-t border-white/5">
+                    <div class="inline-flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        data-qty-idx="${idx}"
+                        data-delta="-1"
+                        class="w-7 h-7 rounded-lg bg-[#090C12] border border-white/15 text-xs font-bold text-brand-bone hover:border-white/35 cursor-pointer"
+                      >
+                        -
+                      </button>
+                      <span class="w-8 text-center font-mono text-xs font-bold text-brand-bone">${row.qty}</span>
+                      <button
+                        type="button"
+                        data-qty-idx="${idx}"
+                        data-delta="1"
+                        class="w-7 h-7 rounded-lg bg-[#090C12] border border-white/15 text-xs font-bold text-brand-bone hover:border-white/35 cursor-pointer"
+                      >
+                        +
+                      </button>
+                      <span class="text-[11px] font-mono text-white/45 ml-1">(${lineUnits} pzas)</span>
+                    </div>
+                    <span class="font-mono text-xs sm:text-sm font-bold text-brand-bone">${formatCurrency(lineTotal)}</span>
+                  </div>
+                </div>
+              `;
+            })
+            .join('');
+        }
+
+        const dozensEquiv = (totalUnits / 12).toFixed(1).replace(/\.0$/, '');
+        const hundredsEquiv = (totalUnits / 100).toFixed(2);
+
+        document.getElementById('cart-total-units').textContent = `${totalUnits} pzas`;
+        document.getElementById('cart-pack-equiv').textContent = `${dozensEquiv} doc • ${hundredsEquiv} cien`;
+        document.getElementById('cart-subtotal').textContent = formatCurrency(subtotal);
+
+        if (mobileBadge && mobileTotal && mobileBar) {
+          mobileBadge.textContent = String(totalPackCount);
+          mobileTotal.textContent = formatCurrency(subtotal);
+          if (totalPackCount > 0) {
+            mobileBar.classList.remove('hidden');
+          } else {
+            mobileBar.classList.add('hidden');
+          }
+        }
+
+        updateCartWhatsAppLink(totalUnits, subtotal);
+      }
+
+      function updateCartWhatsAppLink(totalUnits, subtotal) {
+        const linkEl = document.getElementById('send-whatsapp-order-link');
+        const noteVal = (document.getElementById('buyer-note-input')?.value || '').trim();
+
+        if (cart.length === 0) {
+          linkEl.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Bonetería El Muñeco, quisiera realizar un pedido de mayoreo/menudeo.')}`;
+          return;
+        }
+
+        const lines = [
+          '*PEDIDO — BONETERÍA EL MUÑECO*',
+          'Sucursal: Canal del Norte No. 187, Col. Emilio Carranza, CDMX',
+          '----------------------------------------'
+        ];
+
+        cart.forEach((row, i) => {
+          const prod = catalog.find((p) => p.id === row.productId);
+          if (!prod) return;
+          const unitPrice = Number(prod.prices?.[row.tier] || 0);
+          const lineTotal = unitPrice * row.qty;
+          const units = (TIER_UNITS[row.tier] || 1) * row.qty;
+          lines.push(
+            `${i + 1}. ${prod.name} (${prod.category})`,
+            `   ${row.qty} x ${TIER_LABELS[row.tier]} [${units} pzas] @ ${formatCurrency(unitPrice)} = ${formatCurrency(lineTotal)}`
+          );
+        });
+
+        lines.push(
+          '----------------------------------------',
+          `Total piezas: ${totalUnits} pzas`,
+          `Subtotal estimado: ${formatCurrency(subtotal)}`
+        );
+
+        if (noteVal) {
+          lines.push(`Nota: ${noteVal}`);
+        }
+
+        linkEl.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+      }
+
+      // =========================================================================
+      // 7. EDITOR DE PRECIOS Y CATÁLOGO (JSON / LOCALSTORAGE)
+      // =========================================================================
+      function showEditorBanner(msg, isError = false) {
+        const banner = document.getElementById('editor-status-banner');
+        banner.textContent = msg;
+        banner.className = isError
+          ? 'px-4 py-2.5 rounded-xl text-xs font-medium border bg-red-950/70 border-red-500/40 text-red-200'
+          : 'px-4 py-2.5 rounded-xl text-xs font-medium border bg-emerald-950/70 border-emerald-500/40 text-emerald-200';
+        banner.classList.remove('hidden');
+      }
+
+      function renderPriceEditorTable() {
+        const tbody = document.getElementById('price-table-body');
+        tbody.innerHTML = catalog
+          .map((item, idx) => {
+            const p = item.prices || { pieza: 0, docena: 0, ciento: 0 };
+            return `
+              <tr class="hover:bg-white/[0.02]">
+                <td class="py-2.5 px-3.5">
+                  <p class="font-semibold text-brand-bone">${escapeHtml(item.name)}</p>
+                  <p class="text-[10px] font-mono text-white/45">${escapeHtml(item.category)} • ${escapeHtml(item.sizes)}</p>
+                </td>
+                <td class="py-2.5 px-3 text-[11px] text-white/65">${escapeHtml(item.line)}</td>
+                <td class="py-2.5 px-3">
+                  <input type="number" step="0.01" min="0" data-idx="${idx}" data-field="pieza" value="${p.pieza}" class="price-input w-20 px-2 py-1 rounded bg-[#090C12] border border-white/15 font-mono text-xs text-brand-bone" />
+                </td>
+                <td class="py-2.5 px-3">
+                  <input type="number" step="0.01" min="0" data-idx="${idx}" data-field="docena" value="${p.docena}" class="price-input w-24 px-2 py-1 rounded bg-[#090C12] border border-white/15 font-mono text-xs text-brand-bone" />
+                </td>
+                <td class="py-2.5 px-3">
+                  <input type="number" step="0.01" min="0" data-idx="${idx}" data-field="ciento" value="${p.ciento}" class="price-input w-24 px-2 py-1 rounded bg-[#090C12] border border-white/15 font-mono text-xs text-brand-bone" />
+                </td>
+                <td class="py-2.5 px-3.5 text-right">
+                  <input type="checkbox" data-idx="${idx}" ${item.active !== false ? 'checked' : ''} class="active-toggle accent-[#C83E2B] w-4 h-4 cursor-pointer" />
+                </td>
+              </tr>
+            `;
+          })
+          .join('');
+
+        document.getElementById('raw-json-textarea').value = JSON.stringify(catalog, null, 2);
+      }
+
+      function syncTableInputsToDraft() {
+        const draft = JSON.parse(JSON.stringify(catalog));
+        document.querySelectorAll('.price-input').forEach((inp) => {
+          const idx = Number(inp.dataset.idx);
+          const field = inp.dataset.field;
+          const val = parseFloat(inp.value);
+          if (draft[idx] && !Number.isNaN(val) && val >= 0) {
+            draft[idx].prices = draft[idx].prices || {};
+            draft[idx].prices[field] = Number(val.toFixed(2));
+          }
+        });
+        document.querySelectorAll('.active-toggle').forEach((chk) => {
+          const idx = Number(chk.dataset.idx);
+          if (draft[idx]) {
+            draft[idx].active = chk.checked;
+          }
+        });
+        return draft;
+      }
+
+      // =========================================================================
+      // 8. CRONÓMETRO DE SESIÓN Y RECORDATORIO DISCRETO DE HIDRATACIÓN / PAUSA
+      // =========================================================================
+      const sessionStartTime = Date.now();
+
+      function updateSessionAndHydration() {
+        const elapsedSec = Math.floor((Date.now() - sessionStartTime) / 1000);
+        const hrs = String(Math.floor(elapsedSec / 3600)).padStart(2, '0');
+        const mins = String(Math.floor((elapsedSec % 3600) / 60)).padStart(2, '0');
+        const secs = String(elapsedSec % 60).padStart(2, '0');
+
+        const timerEl = document.getElementById('session-timer');
+        if (timerEl) {
+          timerEl.textContent = `${hrs}:${mins}:${secs}`;
+        }
+
+        const totalMins = Math.floor(elapsedSec / 60);
+        const reminderEl = document.getElementById('hydration-reminder');
+        if (reminderEl) {
+          if (totalMins > 0 && totalMins % 45 === 0) {
+            reminderEl.textContent = 'Pausa sugerida: toma agua y descansa la vista';
+            reminderEl.className = 'px-2.5 py-1 rounded-lg bg-brand-navy border border-brand-terracotta/50 text-brand-bone';
+          } else {
+            reminderEl.textContent = 'Pausa / agua: cada 45 min';
+            reminderEl.className = 'px-2.5 py-1 rounded-lg bg-swiss-card border border-white/10 text-white/65';
+          }
+        }
+      }
+
+      // =========================================================================
+      // 9. EVENTOS GLOBALES DE UI
+      // =========================================================================
+      function openCartDrawer() {
+        document.getElementById('cart-drawer').classList.remove('hidden');
+      }
+
+      function closeCartDrawer() {
+        document.getElementById('cart-drawer').classList.add('hidden');
+      }
+
+      function openEditorModal() {
+        document.getElementById('editor-status-banner').classList.add('hidden');
+        renderPriceEditorTable();
+        document.getElementById('editor-modal').classList.remove('hidden');
+      }
+
+      function closeEditorModal() {
+        document.getElementById('editor-modal').classList.add('hidden');
+      }
+
+      document.getElementById('category-pills').addEventListener('click', (e) => {
+        const pill = e.target.closest('.filter-pill');
+        if (!pill) return;
+        activeFilter = pill.dataset.filter || 'Todos';
+        renderCategoryPills();
+        renderCatalogGrid();
+      });
+
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderCatalogGrid();
+      });
+
+      document.getElementById('sort-select').addEventListener('change', (e) => {
+        sortBy = e.target.value;
+        renderCatalogGrid();
+      });
+
+      document.getElementById('clear-filters-btn').addEventListener('click', () => {
+        activeFilter = 'Todos';
+        searchQuery = '';
+        sortBy = 'default';
+        document.getElementById('search-input').value = '';
+        document.getElementById('sort-select').value = 'default';
+        renderCategoryPills();
+        renderCatalogGrid();
+      });
+
+      document.getElementById('product-grid').addEventListener('click', (e) => {
+        const btn = e.target.closest('.add-to-cart-btn');
+        if (!btn) return;
+        const prodId = btn.dataset.addId;
+        const selectEl = document.getElementById(`tier-${prodId}`);
+        const tier = selectEl ? selectEl.value : 'docena';
+        addToCart(prodId, tier);
+      });
+
+      document.getElementById('open-cart-btn').addEventListener('click', openCartDrawer);
+      document.getElementById('mobile-open-cart-btn').addEventListener('click', openCartDrawer);
+      document.getElementById('close-cart-btn').addEventListener('click', closeCartDrawer);
+      document.getElementById('cart-backdrop').addEventListener('click', closeCartDrawer);
+
+      document.getElementById('cart-items-container').addEventListener('click', (e) => {
+        const qtyBtn = e.target.closest('button[data-qty-idx]');
+        if (qtyBtn) {
+          updateCartQty(Number(qtyBtn.dataset.qtyIdx), Number(qtyBtn.dataset.delta));
+          return;
+        }
+        const remBtn = e.target.closest('button[data-remove-idx]');
+        if (remBtn) {
+          removeCartItem(Number(remBtn.dataset.removeIdx));
+        }
+      });
+
+      document.getElementById('clear-cart-btn').addEventListener('click', () => {
+        cart = [];
+        saveCartToStorage();
+        renderCart();
+      });
+
+      document.getElementById('buyer-note-input').addEventListener('input', () => {
+        renderCart();
+      });
+
+      // Eventos del Editor JSON / LocalStorage
+      document.getElementById('open-editor-btn').addEventListener('click', openEditorModal);
+      document.getElementById('close-editor-btn').addEventListener('click', closeEditorModal);
+      document.getElementById('cancel-editor-btn').addEventListener('click', closeEditorModal);
+      document.getElementById('editor-backdrop').addEventListener('click', closeEditorModal);
+
+      const tabVisual = document.getElementById('tab-visual-editor');
+      const tabRaw = document.getElementById('tab-raw-json');
+      const panelVisual = document.getElementById('panel-visual-editor');
+      const panelRaw = document.getElementById('panel-raw-json');
+
+      tabVisual.addEventListener('click', () => {
+        panelVisual.classList.remove('hidden');
+        panelRaw.classList.add('hidden');
+        tabVisual.className = 'px-4 py-2 rounded-t-xl text-xs font-bold bg-swiss-card text-brand-bone border-t border-x border-white/15 cursor-pointer';
+        tabRaw.className = 'px-4 py-2 rounded-t-xl text-xs font-semibold text-white/60 hover:text-brand-bone cursor-pointer';
+        renderPriceEditorTable();
+      });
+
+      tabRaw.addEventListener('click', () => {
+        const synced = syncTableInputsToDraft();
+        document.getElementById('raw-json-textarea').value = JSON.stringify(synced, null, 2);
+        panelRaw.classList.remove('hidden');
+        panelVisual.classList.add('hidden');
+        tabRaw.className = 'px-4 py-2 rounded-t-xl text-xs font-bold bg-swiss-card text-brand-bone border-t border-x border-white/15 cursor-pointer';
+        tabVisual.className = 'px-4 py-2 rounded-t-xl text-xs font-semibold text-white/60 hover:text-brand-bone cursor-pointer';
+      });
+
+      document.getElementById('add-product-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('new-prod-name').value.trim();
+        const category = document.getElementById('new-prod-category').value;
+        const line = document.getElementById('new-prod-line').value;
+        const composition = document.getElementById('new-prod-comp').value.trim();
+        const sizes = document.getElementById('new-prod-sizes').value.trim();
+        const pieza = parseFloat(document.getElementById('new-prod-pieza').value);
+        const docena = parseFloat(document.getElementById('new-prod-docena').value);
+        const ciento = parseFloat(document.getElementById('new-prod-ciento').value);
+        const colorsRaw = document.getElementById('new-prod-colors').value.trim();
+
+        if (!name || !composition || !sizes || [pieza, docena, ciento].some((n) => Number.isNaN(n) || n < 0)) {
+          showEditorBanner('Completa los campos obligatorios y verifica que los precios sean válidos.', true);
+          return;
+        }
+
+        const baseDraft = syncTableInputsToDraft();
+        const slug = name
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '')
+          .slice(0, 12);
+
+        const newItem = {
+          id: `${slug || 'prod'}-${Date.now().toString().slice(-4)}`,
+          name,
+          category,
+          line,
+          weaveType: category === 'Calcetines' || category === 'Tines' ? 'ribbed' : 'jersey',
+          textureLabel: 'Tejido de surtido comercial',
+          sizes,
+          composition,
+          colors: colorsRaw
+            ? colorsRaw.split(',').map((c) => c.trim()).filter(Boolean)
+            : ['Surtido'],
+          prices: {
+            pieza: Number(pieza.toFixed(2)),
+            docena: Number(docena.toFixed(2)),
+            ciento: Number(ciento.toFixed(2))
+          },
+          active: true
+        };
+
+        baseDraft.unshift(newItem);
+        saveCatalogToStorage(baseDraft);
+        renderPriceEditorTable();
+        renderCatalogGrid();
+        renderCart();
+        e.target.reset();
+        showEditorBanner(`Artículo "${name}" agregado y guardado en LocalStorage.`);
+      });
+
+      document.getElementById('save-catalog-btn').addEventListener('click', () => {
+        try {
+          let nextList;
+          if (!panelRaw.classList.contains('hidden')) {
+            const parsed = JSON.parse(document.getElementById('raw-json-textarea').value);
+            if (!Array.isArray(parsed) || parsed.length === 0) {
+              throw new Error('El JSON debe ser un arreglo no vacío de artículos.');
+            }
+            nextList = parsed;
+          } else {
+            nextList = syncTableInputsToDraft();
+          }
+          saveCatalogToStorage(nextList);
+          renderCatalogGrid();
+          renderCart();
+          showEditorBanner('Cambios guardados en LocalStorage y aplicados al catálogo.');
+        } catch (err) {
+          showEditorBanner(`Error al guardar JSON: ${err.message}`, true);
+        }
+      });
+
+      document.getElementById('export-json-btn').addEventListener('click', () => {
+        const dataStr = JSON.stringify(syncTableInputsToDraft(), null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'catalogo_boneteria_el_muneco.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showEditorBanner('Archivo catalogo_boneteria_el_muneco.json descargado.');
+      });
+
+      document.getElementById('import-json-file').addEventListener('change', (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const parsed = JSON.parse(String(ev.target?.result || ''));
+            if (!Array.isArray(parsed) || parsed.length === 0) {
+              throw new Error('El archivo JSON no contiene un arreglo válido de productos.');
+            }
+            saveCatalogToStorage(parsed);
+            renderPriceEditorTable();
+            renderCatalogGrid();
+            renderCart();
+            showEditorBanner(`Catálogo importado desde "${file.name}" y guardado en LocalStorage.`);
+          } catch (err) {
+            showEditorBanner(`No se pudo importar el JSON: ${err.message}`, true);
+          }
+        };
+        reader.readAsText(file);
+        e.target.value = '';
+      });
+
+      document.getElementById('reset-default-catalog-btn').addEventListener('click', () => {
+        const freshDefault = JSON.parse(JSON.stringify(DEFAULT_CATALOG));
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (err) {
+          // Ignorar
+        }
+        catalog = freshDefault;
+        const badge = document.getElementById('storage-status-badge');
+        if (badge) {
+          badge.textContent = 'Base por defecto';
+          badge.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-brand-navy text-white/70 border border-white/10';
+        }
+        renderPriceEditorTable();
+        renderCatalogGrid();
+        renderCart();
+        showEditorBanner('Catálogo restaurado a los valores iniciales de Bonetería El Muñeco.');
+      });
+
+      // =========================================================================
+      // 10. INICIALIZACIÓN
+      // =========================================================================
+      loadCatalogFromStorage();
+      loadCartFromStorage();
+      renderCategoryPills();
+      renderCatalogGrid();
+      renderCart();
+      updateSessionAndHydration();
+      setInterval(updateSessionAndHydration, 1000);
+    })();
+  </script>
+</body>
+</html>
